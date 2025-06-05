@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jouw Vis Koopgids: Amsterdam & Volendam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f8ff; }
+        .section-title { font-size: 1.8rem; color: #1e3a8a; border-bottom: 3px solid #60a5fa; padding-bottom: 0.6rem; margin-bottom: 1.8rem; text-align: center; }
+        .subsection-title { font-size: 1.4rem; color: #1d4ed8; margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid #93c5fd; padding-bottom: 0.4rem; }
+        .card { background-color: white; border-radius: 0.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; height: 100%; overflow: hidden;}
+        .card:hover { transform: translateY(-6px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
+        .card-content { padding: 1.2rem; flex-grow: 1; }
+        .card-actions { padding: 0.8rem 1.2rem; background-color: #f9fafb; border-top: 1px solid #e5e7eb;}
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; padding: 1rem;}
+        .modal-content { background-color: #fefefe; margin: auto; padding: 1.5rem; border: 1px solid #ddd; width: 95%; max-width: 750px; border-radius: 10px; position: relative; max-height: 90vh; overflow-y: auto; }
+        .close-button { color: #aaa; float: right; font-size: 30px; font-weight: bold; position: absolute; top: 10px; right: 15px; cursor: pointer;}
+        .icon-text { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; color: #374151; }
+        .icon-text i { color: #60a5fa; width: 20px; text-align: center;}
+        .highlight-box { background-color: #e0f2fe; border-left: 5px solid #2563eb; padding: 1.2rem; margin-bottom: 1.8rem; border-radius: 0.5rem; }
+        .timeline-box { background-color: #fef3c7; border-left: 5px solid #f59e0b; padding: 1.2rem; margin-bottom: 1.8rem; border-radius: 0.5rem; }
+        .timeline-box ul { list-style-type: none; padding-left: 0; }
+        .timeline-box li { margin-bottom: 0.6rem; display: flex; align-items: center; font-size: 0.95rem;}
+        .timeline-box i { margin-right: 0.8rem; color: #d97706; font-size: 1.1rem;}
+        .freshness-card { background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1rem; }
+        .freshness-card img { width: 100%; max-width: 160px; margin: 0 auto 0.8rem auto; display: block; border-radius: 0.375rem; border: 1px solid #e5e7eb; }
+        .freshness-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .freshness-example { text-align: center; }
+        .modal-source-item { margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px dashed #e5e7eb; }
+        .modal-source-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .modal-source-title { font-weight: bold; color: #1e40af; margin-bottom: 0.3rem; display: block; }
+        .main-nav-button { background-color: #e0e7ff; color: #3730a3; padding: 0.8rem 1.2rem; border-radius: 0.5rem; font-weight: 600; transition: background-color 0.3s; cursor:pointer; }
+        .main-nav-button:hover { background-color: #c7d2fe; }
+        .main-nav-button.active { background-color: #4f46e5; color: white; }
+    </style>
+</head>
+<body class="p-4 md:p-6 lg:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl lg:text-5xl font-bold text-blue-700 mb-2">Jouw Vis Koopgids</h1>
+        <p class="text-lg text-gray-700">Premium Hele Vis (2.5-3kg) & Garnalen voor Zaterdag</p>
+        <p class="text-md text-gray-600 mt-1">Locaties: Amsterdam (Albert Cuyp e.o.) & Volendam</p>
+        <p class="text-sm text-red-600 font-semibold mt-3 animate-pulse">BELANGRIJK: Bel winkels vrijdagochtend direct voor beschikbaarheid & reservering!</p>
+    </header>
+
+    <!-- Actieplan & Tijdlijn -->
+    <section class="timeline-box max-w-3xl mx-auto mb-10">
+        <h2 class="text-xl font-semibold text-amber-700 mb-4"><i class="fas fa-tasks mr-2"></i>Jouw Actieplan & Tijdlijn (Aankoop Vrijdag 6 Juni)</h2>
+        <ul>
+            <li><i class="fas fa-book-open"></i><span class="font-semibold">Donderdagavond (NU):</span>
+                <ul class="list-disc pl-6 mt-1 text-sm text-gray-700">
+                    <li>Neem deze gids door: focus op "Topkandidaten" en "Gedetailleerde Winkel Info".</li>
+                    <li>Maak een korte bel-lijst voor vrijdagochtend.</li>
+                </ul>
+            </li>
+            <li><i class="fas fa-phone-alt"></i><span class="font-semibold">Vrijdagochtend (ZEER BELANGRIJK):</span>
+                 <ul class="list-disc pl-6 mt-1 text-sm text-gray-700">
+                    <li>Begin direct met bellen (zie openingstijden per winkel).</li>
+                    <li>Vraag naar: beschikbaarheid hele vis (heilbot, tarbot, of rode dorade, 2.5-3kg), prijs, versheid (vangstdatum/leverdatum), herkomst, en mogelijkheid tot reserveren voor diezelfde dag.</li>
+                    <li>Informeer ook naar verse (grote) garnalen/gamba's.</li>
+                </ul>
+            </li>
+            <li><i class="fas fa-store"></i><span class="font-semibold">Vrijdagmiddag:</span>
+                 <ul class="list-disc pl-6 mt-1 text-sm text-gray-700">
+                    <li>Haal de gereserveerde vis op. Neem een koeltas met koelelementen mee!</li>
+                    <li>Inspecteer de vis zelf aan de hand van de "Verse Vis Herkennen" tips.</li>
+                </ul>
+            </li>
+            <li><i class="fas fa-kitchen-set"></i><span class="font-semibold">Vrijdagavond / Zaterdagochtend:</span>
+                 <ul class="list-disc pl-6 mt-1 text-sm text-gray-700">
+                    <li>Vis schoonmaken (of laten doen) en voorbereiden.</li>
+                    <li>Koel bewaren (0-2°C) tot bereiding.</li>
+                </ul>
+            </li>
+            <li><i class="fas fa-birthday-cake"></i><span class="font-semibold">Zaterdag:</span> Geniet van het verjaardagsmaal!</li>
+        </ul>
+    </section>
+
+    <!-- Navigatie Knoppen -->
+    <nav class="flex flex-wrap justify-center gap-3 mb-10" id="mainNavigation">
+        <button class="main-nav-button active" data-target="topKandidatenSection"><i class="fas fa-trophy mr-2"></i>Topkandidaten & Vergelijking</button>
+        <button class="main-nav-button" data-target="gedetailleerdeWinkelsSection"><i class="fas fa-list-alt mr-2"></i>Gedetailleerde Winkel Info</button>
+        <button class="main-nav-button" data-target="vissoortenSection"><i class="fas fa-fish mr-2"></i>Vissoorten Gids</button>
+        <button class="main-nav-button" data-target="verseVisHerkennenSection"><i class="fas fa-eye mr-2"></i>Verse Vis Herkennen</button>
+    </nav>
+
+    <!-- Hoofdcontent Container -->
+    <main id="pageContentContainer">
+
+        <!-- Sectie 1: Topkandidaten & Regio Vergelijking -->
+        <section id="topKandidatenSection" class="page-section">
+            <h2 class="section-title">Topkandidaten & Regio Vergelijking (voor Hele Vis 2.5-3kg)</h2>
+            <div class="highlight-box max-w-4xl mx-auto">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2"><i class="fas fa-star mr-2"></i>Belangrijkste Overwegingen:</h3>
+                <ul class="list-disc list-inside text-indigo-700 text-sm space-y-1">
+                    <li>Voor een grote hele vis is <strong class="font-bold">vooraf bellen en reserveren (vrijdagochtend!) absoluut noodzakelijk</strong>.</li>
+                    <li>Vraag advies aan de vishandelaar: welke van de drie (heilbot, tarbot, rode dorade) is op dat moment van topkwaliteit en het meest geschikt voor bereiding in zijn geheel voor ca. 10 personen?</li>
+                    <li>Albert Cuypmarkt: levendig, concurrentie, mogelijk druk. Speciaalzaken in Amsterdam bieden vaak meer expertise voor specifieke bestellingen.</li>
+                    <li>Volendam: reputatie van versheid, authentieke sfeer. Goede speciaalzaken, maar ook hier is bellen key.</li>
+                </ul>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="subsection-title flex items-center"><i class="fas fa-city mr-3 text-2xl text-blue-600"></i>Amsterdam (Albert Cuyp & Omgeving)</h3>
+                    <div class="bg-white p-5 rounded-lg shadow-md space-y-3">
+                        <p class="text-sm text-gray-600">Dynamisch, veel keus. Ideaal als je de marktsfeer wilt combineren met een bezoek aan speciaalzaken. Vrijdag is marktdag, dus houd rekening met drukte.</p>
+                        <h4 class="font-semibold text-blue-700">Sterkste Kandidaten (bel deze eerst!):</h4>
+                        <ul class="list-none space-y-2 text-sm">
+                            <li class="icon-text"><i class="fas fa-phone-square-alt text-green-500"></i><strong>Koning de Visspecialist (Amstelveen):</strong> Expliciet heilbot, tarbot, dorade genoemd. Kwaliteitsfocus. (Bron: Gemini2.5p) <span class="text-xs text-gray-500">(Topkeuze, wel stukje rijden).</span></li>
+                            <li class="icon-text"><i class="fas fa-phone-square-alt text-green-500"></i><strong>Vishandel Albert Cuyp (Sier & Steur / Siem Schilder):</strong> Gevestigde namen, goede reviews (AC 155 & 149). Goede kans op bestelling. (Bronnen: GPT4.5, Gemini2.5p)</li>
+                             <li class="icon-text"><i class="fas fa-phone-square-alt text-green-500"></i><strong>Vishandel Tel (Centrum):</strong> Premium kwaliteit, ruim assortiment, keurmerken. (Bron: GPT4.5)</li>
+                        </ul>
+                        <h4 class="font-semibold text-blue-700 mt-3">Andere Goede Opties:</h4>
+                        <ul class="list-none space-y-2 text-sm">
+                            <li class="icon-text"><i class="fas fa-check"></i><strong>IJmuider Vishandel (Amstelveenseweg):</strong> Goede reputatie, vers. (Bron: Grok)</li>
+                            <li class="icon-text"><i class="fas fa-check"></i><strong>Viswinkel Peter Tol (Oostelijke Handelskade):</strong> Geverifieerd adres! Focus op "verser dan vers". (Bron: Grok)</li>
+                            <li class="icon-text"><i class="fas fa-check"></i><strong>Volendammer Vishandel J.C.M. Koning (De Pijp):</strong> Breed assortiment, klanttevreden. (Bron: GPT4.5)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="subsection-title flex items-center"><i class="fas fa-anchor mr-3 text-2xl text-blue-600"></i>Volendam & Omgeving</h3>
+                     <div class="bg-white p-5 rounded-lg shadow-md space-y-3">
+                        <p class="text-sm text-gray-600">Traditionele vissersplaats met focus op versheid. Vaak een leuke ervaring om hier vis te halen.</p>
+                        <h4 class="font-semibold text-blue-700">Sterkste Kandidaten (bel deze eerst!):</h4>
+                        <ul class="list-none space-y-2 text-sm">
+                            <li class="icon-text"><i class="fas fa-phone-square-alt text-green-500"></i><strong>Vishandel Julianaweg:</strong> Familiebedrijf, focus op duurzaam & direct van veiling. (Bron: Gemini2.5p) <span class="text-xs text-gray-500">(Topkeuze lokaal).</span></li>
+                             <li class="icon-text"><i class="fas fa-phone-square-alt text-green-500"></i><strong>De Haven Volendam:</strong> Viswinkel & Traiteur, goede locatie, breed aanbod. (Bronnen: GPT4.5, Gemini2.5p)</li>
+                        </ul>
+                        <h4 class="font-semibold text-blue-700 mt-3">Andere Goede Opties:</h4>
+                        <ul class="list-none space-y-2 text-sm">
+                           <li class="icon-text"><i class="fas fa-check"></i><strong>Vishandel de Spijker (Winkelcentrum):</strong> Dagverse aanvoer, selectie op versheid. (Bron: Grok)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sectie 2: Gedetailleerde Winkel Informatie -->
+        <section id="gedetailleerdeWinkelsSection" class="page-section hidden">
+            <h2 class="section-title">Gedetailleerde Winkel Informatie</h2>
+            <p class="text-center text-gray-600 mb-6">Kies een regio om de geconsolideerde winkelinformatie te bekijken. Klik op "Vergelijk Bronnen & Details" voor een diepgaande blik per winkel.</p>
+            <div class="flex justify-center mb-6">
+                <button id="showAmsterdamDetailBtn" class="tab-button active bg-blue-500 text-white py-2 px-4 rounded-l-md">Amsterdam (Albert Cuyp e.o.)</button>
+                <button id="showVolendamDetailBtn" class="tab-button bg-gray-200 text-gray-700 py-2 px-4 rounded-r-md">Volendam & Omgeving</button>
+            </div>
+            <div id="amsterdamVendorsDetail" class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+                <!-- Amsterdam vendor cards will be injected here -->
+            </div>
+            <div id="volendamVendorsDetail" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+                <!-- Volendam vendor cards will be injected here -->
+            </div>
+        </section>
+
+        <!-- Sectie 3: Vissoorten Gids -->
+        <section id="vissoortenSection" class="page-section hidden">
+            <h2 class="section-title">Vissoorten Gids (voor je Gesprek met de Visboer)</h2>
+            <div class="highlight-box max-w-3xl mx-auto">
+                <p class="text-gray-700 mb-2"><i class="fas fa-balance-scale text-indigo-600 mr-1"></i> Een hele vis van 2.5-3 kg is doorgaans voldoende voor 8-10 personen, afhankelijk van de eetlust en bijgerechten. Bespreek de exacte grootte met de vishandelaar.</p>
+                <p class="text-gray-700">Prijzen zijn zeer variabel en indicatief. Bel voor actuele prijzen!</p>
+            </div>
+            <div id="vissoortenAccordion" class="space-y-4 max-w-3xl mx-auto">
+                <!-- Vissoorten accordion items will be injected here -->
+            </div>
+        </section>
+
+        <!-- Sectie 4: Verse Vis Herkennen -->
+        <section id="verseVisHerkennenSection" class="page-section hidden">
+            <h2 class="section-title">Verse Vis Herkennen (Visuele Gids)</h2>
+            <p class="text-center text-gray-600 mb-8">Gebruik je zintuigen! Hieronder de belangrijkste kenmerken van echt verse vis, gebaseerd op advies van experts (o.a. bron Gemini2.5p Spoedonderzoek, Deel 2).</p>
+            
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div class="freshness-card">
+                    <h3 class="subsection-title text-center mb-4 icon-text justify-center"><i class="fas fa-wind fa-2x text-blue-500"></i>Geur: De Beste Indicator</h3>
+                    <p class="text-gray-700 text-center">Verse vis ruikt <span class="font-semibold">fris, ziltig, en neutraal (als de zee)</span>. Het mag absoluut <span class="font-semibold text-red-600">niet</span> "vissig", zurig of naar ammoniak ruiken. Vertrouw je neus!</p>
+                    <p class="text-xs text-gray-500 text-center mt-2">Bron: o.a. Gemini2.5p Spoedonderzoek.</p>
+                </div>
+
+                <div class="freshness-card">
+                    <h3 class="subsection-title text-center mb-4 icon-text justify-center"><i class="fas fa-eye fa-2x text-blue-500"></i>Ogen: Helder en Levendig</h3>
+                    <div class="freshness-comparison">
+                        <div class="freshness-example">
+                            <img src="https://placehold.co/250x167/E0F2FE/1E40AF?text=GOED:+Heldere,+Bolle+Ogen" alt="Goede visogen">
+                            <p class="text-gray-700 mt-2"><strong class="text-green-600">Goed:</strong> Helder, glanzend, vochtig, en licht bolstaand. Pupil diepzwart.</p>
+                        </div>
+                        <div class="freshness-example">
+                            <img src="https://placehold.co/250x167/FEF2F2/DC2626?text=FOUT:+Doffe,+Ingevallen+Ogen" alt="Slechte visogen">
+                            <p class="text-gray-700 mt-2"><strong class="text-red-600">Fout:</strong> Dof, troebel, ingevallen, droog. Melkachtige waas.</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3 text-center">Bron: o.a. Gemini2.5p Spoedonderzoek.</p>
+                </div>
+
+                <div class="freshness-card">
+                    <h3 class="subsection-title text-center mb-4 icon-text justify-center"><i class="fas fa-lungs fa-2x text-blue-500"></i>Kieuwen: Fris en Rood</h3>
+                     <div class="freshness-comparison">
+                        <div class="freshness-example">
+                            <img src="https://placehold.co/250x167/E0F2FE/1E40AF?text=GOED:+Rode/Roze+Kieuwen" alt="Goede viskieuwen">
+                             <p class="text-gray-700 mt-2"><strong class="text-green-600">Goed:</strong> Helderrood tot diep kastanjebruin, vochtig, schoon, geen slijm.</p>
+                        </div>
+                        <div class="freshness-example">
+                            <img src="https://placehold.co/250x167/FEF2F2/DC2626?text=FOUT:+Bruine/Grijze+Kieuwen" alt="Slechte viskieuwen">
+                            <p class="text-gray-700 mt-2"><strong class="text-red-600">Fout:</strong> Bleek, bruin, grijs, groenig. Overmatig slijm, nare geur.</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3 text-center">Bron: o.a. Gemini2.5p Spoedonderzoek.</p>
+                </div>
+
+                <div class="freshness-card">
+                    <h3 class="subsection-title text-center mb-4 icon-text justify-center"><i class="fas fa-hand-pointer fa-2x text-blue-500"></i>Huid, Schubben & Vlees: Stevig en Glanzend</h3>
+                    <p class="text-gray-700 mb-2"><strong class="text-green-600">Goed (Huid):</strong> Glanzend, stevig, vochtig. Schubben (indien aanwezig) goed vast. Lichte, heldere natuurlijke slijmlaag is normaal voor sommige soorten.</p>
+                    <p class="text-gray-700 mb-2"><strong class="text-green-600">Goed (Vlees):</strong> Stevig en elastisch. Veert direct terug bij zachtjes indrukken. Niet papperig of zacht.</p>
+                    <p class="text-gray-700"><strong class="text-red-600">Fout (Huid & Vlees):</strong> Doffe, beschadigde huid. Losse schubben. Dikke, onnatuurlijke slijmlaag. Vlees dat een deuk achterlaat, waterig/papperig is.</p>
+                    <p class="text-xs text-gray-500 mt-2">Bron: o.a. Gemini2.5p Spoedonderzoek.</p>
+                </div>
+            </div>
+             <div class="mt-10 text-center p-5 bg-blue-50 rounded-lg shadow-md">
+                <p class="text-gray-700"><i class="fas fa-question-circle text-blue-500 mr-1"></i> <span class="font-semibold">Twijfel je? Vraag de visboer!</span> Een goede vishandelaar is trots op zijn product en helpt je graag. Vraag naar de herkomst en wanneer de vis is binnengekomen.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Structure -->
+    <div id="vendorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle" class="text-2xl font-bold text-blue-700 mb-4"></h3>
+            <div id="modalMainInfo" class="mb-4">
+                <p id="modalAddress" class="icon-text text-md"><i class="fas fa-map-marker-alt"></i><span></span></p>
+                <p id="modalContact" class="icon-text text-md"><i class="fas fa-phone"></i><span></span></p>
+                <p id="modalOpeningHours" class="icon-text text-md"><i class="fas fa-clock"></i><span></span></p>
+            </div>
+            <hr class="my-4">
+            <h4 class="text-lg font-semibold text-gray-800 mb-3">Informatie per Bron:</h4>
+            <div id="modalSourceDetails" class="space-y-4 text-sm max-h-[55vh] overflow-y-auto pr-2">
+                <!-- Source specific details will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-16 py-8 border-t border-gray-300">
+        <p class="text-sm text-gray-600">Deze gids is met zorg samengesteld op basis van de door u verstrekte onderzoeken. Prijzen en beschikbaarheid zijn indicatief en kunnen variëren. Neem altijd direct contact op met de winkels voor de meest actuele informatie en om teleurstelling te voorkomen.</p>
+         <p class="text-xs text-gray-400 mt-2">Interactieve Gids door Gemini.</p>
+    </footer>
+
+<script>
+    // --- DATA INITIALISATIE ---
+    const rawVendorData = [
+        // Data from GPT4.5 Oorspronkelijk onderzoek
+        {
+            consolidatedName: "Volendammer Vishandel J.C.M. Koning (De Pijp)", 
+            sourceName: "Volendammer Vishandel J.C.M. Koning",
+            address: "Eerste van der Helststraat 60, Amsterdam",
+            contact: "☎️ 020-6760394",
+            availability: "Hele vis 2.5-3kg: Ja, meestal (op aanvraag)",
+            price: "€24-€28/kg (tarbot)",
+            freshness_rating: 4.7, totalReviews: 182,
+            sustainability_rating: 4,
+            specialties: "Breed assortiment; hoge klanttevredenheid. Volwaardige viswinkel.",
+            swot: { s: "Zeer breed assortiment, hoge kwaliteit, vriendelijk personeel.", w: "Niet op zondag open, prijzen iets hoger." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek",
+            region: "amsterdam"
+        },
+        { 
+            consolidatedName: "Vishandel Albert Cuyp (Sier & Steur / Siem Schilder)", 
+            sourceName: "Vishandel Sier & Steur (Albert Cuyp)",
+            address: "Albert Cuypstraat 155, Amsterdam",
+            availability: "Hele vis 2.5-3kg: Ja (dagelijks vers)",
+            price: "€25-€30/kg (tarbot wild)",
+            freshness_rating: 4.6, 
+            sustainability_rating: 4,
+            specialties: "Marktprijs; familiebedrijf sinds 1950. Kan alles leveren wat de afslag aanbiedt.",
+            swot: { s: "Dagverse marktvis, authentieke ervaring, goede reputatie.", w: "Marktsetting (geen bezorging, beperkt open)." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek",
+            region: "amsterdam"
+        },
+        { 
+            consolidatedName: "Vishandel Albert Cuyp (Sier & Steur / Siem Schilder)", 
+            sourceName: "Vishandel Siem Schilder & Zonen",
+            address: "Albert Cuypstraat 149, Amsterdam", 
+            availability: "Hele vis 2.5-3kg: Ja (vaak op voorraad)",
+            price: "€25/kg (indicatie dorade)",
+            freshness_rating: 4.5,
+            sustainability_rating: 4,
+            specialties: "Geroemd om allerfreshte vis, meer-generatie viskraam.",
+            swot: { s: "Legendarische versheid, vakmanschap.", w: "Druk op piekmomenten, assortiment iets minder exotisch." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek",
+            region: "amsterdam"
+        },
+        {
+            consolidatedName: "Vishandel Molenaar (Albert Cuyp)",
+            sourceName: "Vishandel Molenaar",
+            address: "Albert Cuypstraat 93, Amsterdam",
+            availability: "Hele vis 2.5-3kg: Ja (tarbot 2-3kg geregeld)",
+            price: "€25-€30/kg (indicatie)",
+            freshness_rating: 4.5, totalReviews: 127,
+            sustainability_rating: 3.5,
+            specialties: "Eigen winkelpand, ruime openingstijden. Gerookte paling & kibbeling geprezen.",
+            swot: { s: "Versheid, smaak, goede paling/kibbeling.", w: "Minder info over duurzaamheidslabels." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek",
+            region: "amsterdam"
+        },
+        {
+            consolidatedName: "Vishandel Tel (Centrum)",
+            sourceName: "Vishandel Tel",
+            address: "Kloveniersburgwal 13, Amsterdam",
+            website: "https://www.vishandelcentrumtel.nl/", 
+            availability: "Hele vis 2.5-3kg: Ja (zeer ruim assortiment)",
+            price: "€27-€32/kg (premium kwaliteit)",
+            freshness_rating: 4.8,
+            sustainability_rating: 4.5,
+            specialties: "Meermalig 'beste viswinkel A'dam'; alle keurmerken (MSC/ASC). Levert ook aan 't Havengat Volendam.",
+            swot: { s: "Topkwaliteit, one-stop-shop, duidelijke duurzame keuzes.", w: "Hoog prijsniveau, lastig bereikbaar per auto." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek (Website aangevuld)",
+            region: "amsterdam"
+        },
+        {
+            consolidatedName: "IJmuider Vishandel (Amstelveenseweg)",
+            sourceName: "IJmuider Vishandel",
+            address: "Amstelveenseweg 198, Amsterdam",
+            contact: "☎️ 020 673 78 24",
+            website: "https://www.ijmuidervishandel.nl/",
+            availability: "Hele vis 2.5-3kg: Onbekend, waarschijnlijk op bestelling. Bel voor info.",
+            price: "Prijs voor hele vis niet gespecificeerd. Bel voor info.",
+            freshness_rating: 5, 
+            sustainability_rating: 4, 
+            specialties: "Dagelijkse verse aanvoer van vis uit Europese wateren. Bekend om kwaliteit en breed assortiment. Goede reputatie (4,5* Yelp).",
+            opening_hours: "Di-Za: 9:00-18:00 (Za tot 17:00)",
+            swot: { s: "Dagverse aanvoer, brede selectie, goede reputatie.", w: "Geen online informatie over hele grote vissen.", o: "Mogelijkheid om op bestelling grote vissen te leveren.",r: "Variabele aanvoer van specifieke vissen." },
+            dataSource: "Grok Aanvullend onderzoek",
+            region: "amsterdam"
+        },
+        {
+            consolidatedName: "Viswinkel Peter Tol (Oostelijke Handelskade)", 
+            sourceName: "Viswinkel Peter Tol",
+            address: "Oostelijke Handelskade 1041-1045, 1019 BW Amsterdam", 
+            contact: "☎️ 020 419 2007", 
+            website: "https://viswinkelpetertol.nl/",
+            availability: "Hele vis 2.5-3kg: Niet expliciet vermeld, waarschijnlijk op bestelling. Bel voor info.",
+            price: "Prijs voor hele vis niet gespecificeerd. Bel voor info.",
+            freshness_rating: 5, 
+            sustainability_rating: 4, 
+            specialties: "'Verser dan vers', fileren op vangstdag. Vis uit Europese wateren. MSC/ASC & Duurzaam Paling Fonds. Oesters in eigen homarium.",
+            opening_hours: "Di-Vr: 09:00-18:00, Za: 09:00-17:00 (van website)", 
+            swot: { s: "Uitzonderlijke versheid, MSC/ASC-certificaten.", w: "Geen specifieke vermelding van grote vissen; mogelijk hogere prijzen.", o: "Mogelijkheid om premiumvissen te bestellen.",r: "Hoge prijzen voor premiumproducten." },
+            dataSource: "Grok Aanvullend onderzoek (Adres & contact geverifieerd & gecorrigeerd, openingstijden van website)",
+            notes_from_grok: "Oorspronkelijk adres Kinkerstraat 181 (incorrect). Contact 020 618 7062 was mogelijk voor Kinkerstraat.",
+            region: "amsterdam"
+        },
+        { 
+            consolidatedName: "Vishandel Albert Cuyp (Sier & Steur / Siem Schilder)", 
+            sourceName: "Vishandel Albert Cuyp / Siem Schilder (Gemini2.5p)",
+            address: "Albert Cuypstraat 155, 1073BC Amsterdam",
+            contact: "☎️ 020 845 6772 | info@vishandelalbertcuyp.nl",
+            availability: "Hele vis: Navragen. Doradefilet en garnalen/gamba's (bereid) beschikbaar online.",
+            price: "Doradefilet (150g gekweekt) €5,50. Gebakken gamba's (200g) €8,50. Prijzen hele vis opvragen.",
+            freshness_rating: 4.5, 
+            sustainability_rating: 3.5, 
+            specialties: "Sinds WOII gevestigde naam, 'een begrip'. Meer dan 50 vissoorten op de markt. Zeer positieve online reviews.",
+            opening_hours: "Vrijdag: 07:30 - 17:00 (mogelijk 09:30 - 17:00)",
+            swot: { s: "Lange historie, uitstekende reviews, breed aanbod op markt.", w: "Website niet toegankelijk, info hele vis onduidelijk." },
+            dataSource: "Gemini2.5p Spoedonderzoek",
+            region: "amsterdam"
+        },
+        {
+            consolidatedName: "Viscenter Volendam (Kinkerstraat)", 
+            sourceName: "Viscenter Volendam (Kinkerstraat, Amsterdam)",
+            address: "Kinkerstraat 181, 1053 DP Amsterdam", 
+            contact: "☎️ 020 618 7062 | info@viscentervolendam.nl",
+            website: "https://www.viscentervolendam.nl/", 
+            availability: "Hele vis: Navragen. Garnalen beschikbaar.",
+            price: "Niet gespecificeerd. Bel voor info.",
+            freshness_rating: 4.5, 
+            sustainability_rating: 3.5, 
+            specialties: "Verse vis rechtstreeks uit Volendam. Uitmuntende prijs/kwaliteit. Goede reputatie, 'kenners komen hier haring eten'.",
+            opening_hours: "Vrijdag: 09:00 - 18:00",
+            swot: { s: "Goede reputatie, focus op 'vers uit Volendam', goede prijs/kwaliteit.", w: "Specifieke info hele grote vis ontbreekt." },
+            dataSource: "Gemini2.5p Spoedonderzoek (Website aangevuld)",
+            region: "amsterdam"
+        },
+        {
+            consolidatedName: "Koning de Visspecialist (Amstelveen)",
+            sourceName: "Koning de Visspecialist (Amstelveen)",
+            address: "Nieuwloopveld 10, 1181ZK Amstelveen",
+            contact: "☎️ 0206415646 | info@koningamstelveen.nl",
+            website: "https://www.koningdevisspecialist.nl/", 
+            availability: "Hele vis: Ja, expliciet heilbot, tarbot, dorade, garnalen.",
+            price: "Niet gespecificeerd. Bel voor info.",
+            freshness_rating: 5, 
+            sustainability_rating: 4, 
+            specialties: "Breed assortiment incl. gevraagde vis. Direct van visafslag na persoonlijke kwaliteitsbeoordeling. Online bestellen & afhalen mogelijk.",
+            opening_hours: "Vrijdag: 08:00 - 18:00",
+            swot: { s: "Expliciet alle gevraagde vissoorten, focus op kwaliteit/versheid, online bestellen.", w: "Locatie Amstelveen (verder van centrum)." },
+            dataSource: "Gemini2.5p Spoedonderzoek",
+            region: "amsterdam"
+        },
+        {
+            consolidatedName: "Vishandel Dick Tol V.O.F. (Hugo de Grootplein)",
+            sourceName: "Vishandel Dick Tol V.O.F. (Amsterdam)",
+            address: "Hugo de Grootplein 2, Amsterdam",
+            contact: "☎️ (020) 612 7988", 
+            website: "https://www.vishandeldicktol.nl/", 
+            availability: "Hele vis: Navragen. 'Verse vis' en 'Gebakken gamba's' in assortiment.",
+            price: "Gebakken gamba's knoflook €6/100g. Prijzen hele vis opvragen.",
+            freshness_rating: 4.2, 
+            sustainability_rating: 3.5, 
+            specialties: "Goede reviews (4,2*).",
+            opening_hours: "Vrijdag: 08:00 - 18:00",
+            dataSource: "Gemini2.5p Spoedonderzoek (Website aangevuld)",
+            region: "amsterdam"
+        },
+        { 
+            consolidatedName: "De Haven Volendam",
+            sourceName: "Viswinkel en Traiteur De Haven Volendam (GPT4.5)",
+            address: "Zuideinde 2, Volendam", 
+            contact: "☎️ 0299-322822", 
+            availability: "Hele vis 2.5-3kg: Ja (dagelijks)",
+            price: "€22-€25/kg (tarbot)",
+            freshness_rating: 4.5,
+            sustainability_rating: 4,
+            specialties: "Alles in huis (rauw & klaar); top kibbeling. Winkel met eetterras.",
+            opening_hours: "Vrijdag 10:00-19:00 (van Gemini2.5p)",
+            swot: { s: "Zeer compleet: van rauw tot ter plekke bereid, hoge versheid, prettige winkel + terras.", w: "In weekenden erg druk." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek (aangevuld met Gemini2.5p info)",
+            region: "volendam"
+        },
+        { 
+            consolidatedName: "De Haven Volendam", 
+            sourceName: "De Haven Volendam (Viswinkel en Traiteur - Gemini2.5p)",
+            address: "Zuideinde 2, 1132 BV Volendam", 
+            contact: "☎️ 0299-322822 | viswinkel@dehavenvolendam.nl",
+            website: "https://www.dehavenvolendam.nl/", 
+            availability: "Hele vis: Navragen (website ontoegankelijk tijdens Gemini2.5p onderzoek, nu wel).",
+            price: "Niet gespecificeerd. Bel voor info.",
+            freshness_rating: 4, 
+            sustainability_rating: 3.5, 
+            specialties: "Viswinkel en Traiteur. Locatie aan de haven.",
+            opening_hours: "Vrijdag: 10:00 - 19:00",
+            swot: { s: "Locatie haven, positieve externe vermelding (nabij).", w: "Website was ontoegankelijk, weinig concrete assortimentsinfo in bron." },
+            dataSource: "Gemini2.5p Spoedonderzoek (Website aangevuld)",
+            region: "volendam"
+        },
+        {
+            consolidatedName: "Vishandel \"Lekkers\" (Kraam)",
+            sourceName: "Vishandel \"Lekkers\" (kraam Paul Moormann)",
+            address: "Haven 90, Volendam",
+            availability: "Hele vis 2.5-3kg: Ja (beperkt, vroeg vragen)",
+            price: "€20-€22/kg (tarbot/dorade)",
+            freshness_rating: 4.7,
+            sustainability_rating: 4,
+            specialties: "Kraam op dijk; super verse hap & vis (culinair). Eigenaar is kok.",
+            swot: { s: "Uitmuntende productkwaliteit (haring, kibbeling), culinaire kennis.", w: "Seizoensgebonden open; bij slecht weer minder aanbod." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek",
+            region: "volendam"
+        },
+        {
+            consolidatedName: "Vishandel De Zeestraat",
+            sourceName: "Vishandel De Zeestraat (vh. Schilder)",
+            address: "Zeestraat 8, Volendam",
+            contact: "☎️ 0299-369899",
+            availability: "Hele vis 2.5-3kg: Ja (vaak, anders bestellen)",
+            price: "~€20/kg (gemiddeld)",
+            freshness_rating: 4.4,
+            sustainability_rating: 4,
+            specialties: "Dorpswinkel; vertrouwde kwaliteit sinds '80s. Ook gebakken en patat.",
+            swot: { s: "Lokaal vertrouwd, combinatie van verse vis en snackbar.", w: "Minder gespecialiseerd in exotische soorten." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek",
+            region: "volendam"
+        },
+        {
+            consolidatedName: "Paviljoen Smit-Bokkum",
+            sourceName: "Paviljoen Smit-Bokkum (winkel/museum)",
+            address: "Slobbeland 19, Volendam",
+            website: "https://www.smitbokkum.nl/",
+            availability: "Hele vis 2.5-3kg: Beperkt (focus op paling)",
+            price: "N.v.t. voor doelvis",
+            freshness_rating: 4.5,
+            sustainability_rating: 4,
+            specialties: "Uniek voor gerookte vis (paling, zalm); museum erbij.",
+            swot: { s: "Unieke niche (palingrokerij), toeristische bekendheid.", w: "Beperkt assortiment voor hele verse vis." },
+            dataSource: "GPT4.5 Oorspronkelijk onderzoek (Website aangevuld)",
+            region: "volendam"
+        },
+        {
+            consolidatedName: "Vishandel de Spijker (Winkelcentrum)", 
+            sourceName: "Vishandel de Spijker",
+            address: "Plutostraat 1, 1131 KZ Volendam", 
+            contact: "☎️ 0299 366 730", 
+            website: "https://vishandeldespijker.nl/",
+            availability: "Hele vis 2.5-3kg: Onbekend. Bel voor info.",
+            price: "Prijs voor hele vis niet gespecificeerd. Bel voor info.",
+            freshness_rating: 5, 
+            sustainability_rating: 4, 
+            specialties: "Dagelijkse verse aanvoer van veilingen/groothandels. Selectie op versheid, structuur, smaak.",
+            opening_hours: "Ma-Do: 08:30-18:00, Vr: 08:00-18:00, Za: 08:00-17:00 (van website)",
+            swot: {s: "Dagverse vis, lokale winkel met goede reputatie.", w: "Geen online prijzen/producten.", o: "Directe levering verse vis.", r: "Afhankelijk van dagelijkse aanvoer." },
+            dataSource: "Grok Aanvullend onderzoek (Contact, adres & openingstijden aangevuld/geverifieerd)",
+            region: "volendam"
+        },
+        {
+            consolidatedName: "P. Bond en Zonen (Visverwerking)",
+            sourceName: "P. Bond en Zonen",
+            address: "Morseweg 33, Volendam",
+            contact: "☎️ 0299 363798",
+            website: "https://pbondenzonen.nl/",
+            availability: "Hele vis 2.5-3kg: Niet expliciet vermeld. Bel voor info. (Primair visverwerking/groothandel)",
+            price: "Prijs voor hele vis niet gespecificeerd. Visschotels €49,50.",
+            freshness_rating: 4, 
+            sustainability_rating: 3, 
+            specialties: "Breed assortiment visproducten, incl. visschotels en salades. Goede reputatie.",
+            opening_hours: "Ma-Vr: 07:00-16:00 (van website, mogelijk voor groothandel)",
+            swot: { s: "Brede selectie, goede reputatie.", w: "Info over hele grote vis beperkt; mogelijk niet direct particuliere verkoop." },
+            dataSource: "Grok Aanvullend onderzoek (Openingstijden aangevuld)",
+            region: "volendam"
+        },
+        {
+            consolidatedName: "Vishandel Julianaweg",
+            sourceName: "Vishandel Julianaweg (Volendam)",
+            address: "Julianaweg 162, 1131 DL Volendam", 
+            contact: "☎️ 0299350207 | Vishandeljulianaweg@gmail.com",
+            availability: "Hele vis: Navragen. 'Uitgebreid assortiment', 'diversiteit aan vissoorten'.",
+            price: "Niet gespecificeerd. Bel voor info.",
+            freshness_rating: 4.5, 
+            sustainability_rating: 4, 
+            specialties: "Familiebedrijf sinds 1998 (winkel sinds 1955). Duurzaam gevangen, direct van de veiling. Klantgerichte service.",
+            opening_hours: "Vrijdag: 08:30 - 18:00",
+            swot: { s: "Reputatie, focus op verse/duurzame vis, klantgericht.", w: "Specifieke info hele grote vis/garnalen ontbreekt." },
+            dataSource: "Gemini2.5p Spoedonderzoek (Adres verfijnd o.b.v. context)",
+            region: "volendam"
+        },
+        {
+            consolidatedName: "Gebroeders de Boer Ambachtelijke Visrokerij",
+            sourceName: "Gebroeders de Boer Ambachtelijke Visrokerij",
+            address: "Parallelstraat 4, 1131 DM Volendam", 
+            contact: "☎️ 0299 363558", 
+            website: "https://www.gebrdeboer.nl/", 
+            availability: "Hele vis: Waarschijnlijk niet (focus gerookt). Garnalen mogelijk.",
+            price: "Niet gespecificeerd.",
+            freshness_rating: 3.5, 
+            sustainability_rating: 3, 
+            specialties: "Ambachtelijke visrokerij.",
+            opening_hours: "Vrijdag: 09:00 - 15:00 (van website, Gemini2.5p zei tot 15:00)",
+            dataSource: "Gemini2.5p Spoedonderzoek (Contact/adres/website aangevuld, openingstijden geverifieerd)",
+            region: "volendam"
+        },
+        {
+            consolidatedName: "'t Havengat Seafood (Restaurant)",
+            sourceName: "'t Havengat Seafood (Restaurant, mog. afname)",
+            address: "Haven 108, 1131 EV Volendam", 
+            contact: "☎️ 0299 369009", 
+            website: "https://thavengat.nl/", 
+            availability: "Hele vis: Mogelijk op aanvraag (via Vishandel Tel). Gamba's op menu.",
+            price: "Niet gespecificeerd voor losse verkoop.",
+            freshness_rating: 4, 
+            sustainability_rating: 3.5, 
+            specialties: "Restaurant, werkt met dagverse vis van Vishandel Tel. Ruime openingstijden.",
+            opening_hours: "Vrijdag: 11:00 - 02:00 (van website, Gemini2.5p zei tot 02:00)",
+            dataSource: "Gemini2.5p Spoedonderzoek (Contact/adres/website aangevuld, openingstijden geverifieerd)",
+            region: "volendam"
+        }
+    ];
+
+    // Consolidate vendor data
+    const consolidatedVendors = {};
+    rawVendorData.forEach(item => {
+        const key = getVendorKey(item.consolidatedName, item.address);
+
+        if (!consolidatedVendors[key]) {
+            consolidatedVendors[key] = {
+                consolidatedName: item.consolidatedName, 
+                primaryAddress: item.address, 
+                primaryContact: item.contact || "Niet gespecificeerd",
+                primaryWebsite: item.website,
+                primaryOpeningHours: item.opening_hours,
+                region: item.region,
+                sources: []
+            };
+        }
+        // Update primary info if current item has more complete or verified info
+        if (item.website && !consolidatedVendors[key].primaryWebsite) consolidatedVendors[key].primaryWebsite = item.website;
+        if (item.contact && (consolidatedVendors[key].primaryContact === "Niet gespecificeerd" || (item.dataSource && item.dataSource.includes("geverifieerd")))) {
+            consolidatedVendors[key].primaryContact = item.contact;
+        }
+         if (item.address && (item.dataSource && item.dataSource.includes("geverifieerd")) && consolidatedVendors[key].primaryAddress !== item.address) { // Prioritize verified address
+            consolidatedVendors[key].primaryAddress = item.address;
+        }
+        if (item.opening_hours && (!consolidatedVendors[key].primaryOpeningHours || (item.dataSource && item.dataSource.includes("geverifieerd")))) {
+            consolidatedVendors[key].primaryOpeningHours = item.opening_hours;
+        }
+        consolidatedVendors[key].sources.push(item);
+    });
+    
+    const vendorsByRegion = { amsterdam: [], volendam: [] };
+    Object.values(consolidatedVendors).forEach(v => {
+        v.sources.sort((a, b) => { // Sort sources for consistent display
+            const order = ["GPT4.5", "Grok", "Gemini2.5p"]; // Ensure these prefixes match exactly how they appear in dataSource
+            const indexA = order.findIndex(p => a.dataSource && a.dataSource.toLowerCase().includes(p.toLowerCase()));
+            const indexB = order.findIndex(p => b.dataSource && b.dataSource.toLowerCase().includes(p.toLowerCase()));
+            return (indexA === -1 ? order.length : indexA) - (indexB === -1 ? order.length : indexB);
+        });
+        if (v.region === "amsterdam") vendorsByRegion.amsterdam.push(v);
+        else if (v.region === "volendam") vendorsByRegion.volendam.push(v);
+    });
+
+
+    const vissoorten = [
+        {
+            name: "Tarbot (hele vis, 2.5-3 kg)",
+            price: "€25–€30/kg (markt/Volendam, bron GPT4.5), €24-€26/kg (kweek, bron GPT4.5). Prijzen variëren sterk.",
+            availability: "Regelmatig op voorraad bij gespecialiseerde zaken (bron GPT4.5), maar grote exemplaren (2.5-3kg) vrijwel altijd op bestelling.",
+            notes: "Topkwaliteit, stevig wit vlees. Wild duurder dan kweek. Juni kan in/na paaiseizoen vallen; informeer naar conditie (vlees/kuit verhouding) (bron Gemini2.5p). Heeft geen schubben maar benige knobbeltjes ('gesteende wratjes'). 'Rode' tarbot (buikzijde rood) vermijden (bron Gemini2.5p)."
+        },
+        {
+            name: "Heilbot (hele vis, 2.5-3 kg)",
+            price: "€35–€40/kg (wild Atlantisch, schaars), €22–€28/kg (kweek Noors), ~€15/kg (zwarte/Groenlandse) (bron GPT4.5). Prijzen sterk afhankelijk van soort.",
+            availability: "Wild Atlantisch is zeldzaam; bestellen cruciaal. Kweek of zwarte heilbot beter verkrijgbaar.",
+            notes: "Mild, zacht, stevig vlees. Atlantische heilbot is premium. Zwarte heilbot is vetter, goedkoper, andere soort. Seizoen maart-november is gunstig (bron Gemini2.5p)."
+        },
+        {
+            name: "Rode Dorade (grote, 2.5-3 kg)",
+            price: "€18–€24/kg (indicatie bron GPT4.5).",
+            availability: "Groot formaat meestal op bestelling. Kleinere vaker op voorraad.",
+            notes: "Ook Dorade Rosé/goudbrasem. Wildvang vaak superieur. Kenmerk: goudkleurige band tussen ogen (wild). Vraag of de visboer schoonmaakt (ontschubben, ingewanden verwijderen) (bron Gemini2.5p)."
+        },
+        {
+            name: "Grote Garnalen / Gamba's (voor pasta)",
+            price: "€25–€35/kg (afh. van maat, rauw/gekookt, bron GPT4.5).",
+            availability: "Vrijwel altijd voorradig (vers of diepgevroren), gepeld/ongepeld. Albert Cuypmarkt goede optie (bron Grok).",
+            notes: "Voor pasta zijn grotere formaten ('gamba's') geschikt. Informeer naar herkomst (wildvang/kweek) en vers vs. ontdooid. Ongepeld vaak smaakvoller; pantsers ideaal voor bouillon (bron Gemini2.5p)."
+        }
+    ];
+
+    // --- HULPFUNCTIES ---
+    function getVendorKey(name, address) { // Key function should be robust
+        const nameClean = String(name || '').toLowerCase().replace(/[^a-z0-9\s]/gi, '').replace(/\s+/g, ' ').trim();
+        const addressParts = String(address || '').toLowerCase().split(',');
+        const streetPart = addressParts[0].replace(/[^a-z0-9\s]/gi, '').replace(/\s+/g, ' ').trim();
+        let cityPart = '';
+        if (addressParts.length > 1) {
+            cityPart = addressParts[addressParts.length -1].replace(/[^a-z0-9\s]/gi, '').replace(/\s+/g, ' ').trim().substring(0,10);
+        }
+        return `${nameClean.substring(0,30)}-${streetPart.substring(0,20)}-${cityPart}`; 
+    }
+
+    function generateStarRating(rating, maxStars = 5) {
+        let stars = '';
+        const numRating = parseFloat(rating);
+        if (isNaN(numRating) || numRating === 0) return 'N/A';
+        const fullStars = Math.round(numRating);
+        for (let i = 0; i < maxStars; i++) {
+            stars += i < fullStars ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+        }
+        return stars;
+    }
+
+    function generateSustainabilityRating(rating, maxIcons = 5) {
+        let icons = '';
+        const numRating = parseFloat(rating);
+        if (isNaN(numRating) || numRating === 0) return 'N/A';
+        const fullIcons = Math.round(numRating);
+        for (let i = 0; i < maxIcons; i++) {
+            icons += i < fullIcons ? '<i class="fas fa-leaf text-green-500"></i>' : '<i class="far fa-leaf text-gray-400"></i>';
+        }
+        return icons;
+    }
+
+    // --- CONTENT WEERGAVE FUNCTIES ---
+    function displayVendors(location) {
+        const container = document.getElementById(location === 'amsterdam' ? 'amsterdamVendorsDetail' : 'volendamVendorsDetail');
+        if (!container) {
+            console.error(`Container for ${location} not found.`);
+            return;
+        }
+        container.innerHTML = ''; 
+        vendorsByRegion[location].forEach(cv => { // cv for consolidatedVendor
+            let avgFreshness = 0; let freshCount = 0;
+            let avgSustain = 0; let sustainCount = 0;
+            cv.sources.forEach(s => {
+                if (s.freshness_rating) { avgFreshness += parseFloat(s.freshness_rating); freshCount++; }
+                if (s.sustainability_rating) { avgSustain += parseFloat(s.sustainability_rating); sustainCount++; }
+            });
+            const displayFresh = freshCount > 0 ? (avgFreshness / freshCount).toFixed(1) : "N/A";
+            const displaySustain = sustainCount > 0 ? (avgSustain / sustainCount).toFixed(1) : "N/A";
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="card-content">
+                    <h3 class="text-lg font-semibold text-blue-700 mb-2">${cv.consolidatedName}</h3>
+                    <p class="icon-text text-sm"><i class="fas fa-map-marker-alt"></i>${cv.primaryAddress}</p>
+                    <p class="icon-text text-sm"><i class="fas fa-info-circle text-purple-500"></i>Info uit ${cv.sources.length} bron(nen)</p>
+                    <div class="text-sm my-2">
+                        <span class="font-medium">Versheid (gem.): </span>
+                        <span class="rating-stars">${generateStarRating(displayFresh)}</span>
+                        <span class="text-xs">(${displayFresh})</span>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-medium">Duurzaam (gem.): </span>
+                        <span class="sustainability-icon">${generateSustainabilityRating(displaySustain)}</span>
+                        <span class="text-xs">(${displaySustain})</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-sm w-full"
+                            onclick="openVendorModal('${cv.region}', '${getVendorKey(cv.consolidatedName, cv.primaryAddress).replace(/'/g, "\\'")}')">
+                        Vergelijk Bronnen & Details
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+    
+    function openVendorModal(location, vendorKey) {
+        const vendorData = Object.values(consolidatedVendors).find(v => getVendorKey(v.consolidatedName, v.primaryAddress) === vendorKey);
+        if (!vendorData) {
+            console.error("Vendor data not found for key:", vendorKey);
+            return;
+        }
+
+        document.getElementById('modalTitle').innerText = vendorData.consolidatedName;
+        
+        const modalAddressEl = document.getElementById('modalAddress').querySelector('span');
+        modalAddressEl.textContent = vendorData.primaryAddress;
+        
+        const modalContactEl = document.getElementById('modalContact').querySelector('span');
+        let primaryContactHTML = vendorData.primaryContact || "Niet gespecificeerd";
+        if(vendorData.primaryWebsite) {
+            primaryContactHTML += ` | <a href="${vendorData.primaryWebsite}" target="_blank" class="text-blue-500 hover:underline">Website</a>`;
+        }
+        modalContactEl.innerHTML = primaryContactHTML;
+
+        const modalOpeningEl = document.getElementById('modalOpeningHours').querySelector('span');
+        modalOpeningEl.textContent = vendorData.primaryOpeningHours || 'Niet gespecificeerd / Bel voor info';
+
+        const sourceDetailsContainer = document.getElementById('modalSourceDetails');
+        sourceDetailsContainer.innerHTML = ''; 
+
+        vendorData.sources.forEach(source => {
+            let detailsHTML = `<div class="modal-source-item">`;
+            detailsHTML += `<p class="modal-source-title">${source.dataSource}</p>`;
+            if (source.sourceName && source.sourceName !== vendorData.consolidatedName) {
+                 detailsHTML += `<p><em>Naam in bron: ${source.sourceName}</em></p>`;
+            }
+            if (source.address !== vendorData.primaryAddress) { 
+                 detailsHTML += `<p><em>Adres in bron: ${source.address} ${source.notes_from_grok ? '<span class="text-xs text-red-500">('+source.notes_from_grok+')</span>' : ''}</em></p>`;
+            }
+            if (source.contact && source.contact !== vendorData.primaryContact) { 
+                let contactDetail = source.contact;
+                if (source.website && source.website !== vendorData.primaryWebsite) contactDetail += ` | <a href="${source.website}" target="_blank" class="text-blue-500 hover:underline">Website (bron)</a>`;
+                else if (source.website) contactDetail += ` | <a href="${source.website}" target="_blank" class="text-blue-500 hover:underline">Website</a>`;
+                detailsHTML += `<p><strong>Contact (bron):</strong> ${contactDetail}</p>`;
+            } else if (source.website && source.website !== vendorData.primaryWebsite) {
+                 detailsHTML += `<p><strong>Contact (bron):</strong> <a href="${source.website}" target="_blank" class="text-blue-500 hover:underline">Website (bron)</a></p>`;
+            }
+            if (source.opening_hours && source.opening_hours !== vendorData.primaryOpeningHours) {
+                 detailsHTML += `<p><strong>Openingstijden (bron):</strong> ${source.opening_hours}</p>`;
+            }
+            detailsHTML += `<p><strong>Beschikbaarheid hele vis (bron):</strong> ${source.availability || 'Niet gespecificeerd'}</p>`;
+            detailsHTML += `<p><strong>Prijsindicatie (bron):</strong> ${source.price || 'Niet gespecificeerd'}</p>`;
+            detailsHTML += `<p><strong>Specialiteiten (bron):</strong> ${source.specialties || 'N.v.t.'}</p>`;
+            if (source.swot) {
+                detailsHTML += `<p class="mt-1"><strong>Analyse (bron):</strong> `;
+                if(source.swot.s) detailsHTML += `S: ${source.swot.s} `;
+                if(source.swot.w) detailsHTML += `W: ${source.swot.w} `;
+                if(source.swot.o) detailsHTML += `O: ${source.swot.o} `;
+                if(source.swot.r) detailsHTML += `R: ${source.swot.r}`;
+                detailsHTML += `</p>`;
+            }
+             if (source.freshness_rating) {
+                detailsHTML += `<p><strong>Versheid (bron):</strong> ${generateStarRating(source.freshness_rating)} (${source.freshness_rating}${source.totalReviews ? '/'+source.totalReviews+'rev' : ''})</p>`;
+            }
+            if (source.sustainability_rating) {
+                detailsHTML += `<p><strong>Duurzaam (bron):</strong> ${generateSustainabilityRating(source.sustainability_rating)} (${source.sustainability_rating})</p>`;
+            }
+            detailsHTML += `</div>`;
+            sourceDetailsContainer.innerHTML += detailsHTML;
+        });
+        
+        document.getElementById('vendorModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('vendorModal').style.display = 'none';
+    }
+
+    // --- EVENT LISTENERS & INITIALISATIE ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // Location Tab functionality for Detailed Vendor Info
+        const amsterdamDetailBtn = document.getElementById('showAmsterdamDetailBtn');
+        const volendamDetailBtn = document.getElementById('showVolendamDetailBtn');
+        const amsterdamVendorsDivDetail = document.getElementById('amsterdamVendorsDetail');
+        const volendamVendorsDivDetail = document.getElementById('volendamVendorsDetail');
+
+        if(amsterdamDetailBtn && volendamDetailBtn && amsterdamVendorsDivDetail && volendamVendorsDivDetail) {
+            amsterdamDetailBtn.addEventListener('click', () => {
+                amsterdamVendorsDivDetail.style.display = 'grid';
+                volendamVendorsDivDetail.style.display = 'none';
+                amsterdamDetailBtn.classList.add('active', 'bg-blue-500', 'text-white');
+                amsterdamDetailBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                volendamDetailBtn.classList.remove('active', 'bg-blue-500', 'text-white');
+                volendamDetailBtn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+
+            volendamDetailBtn.addEventListener('click', () => {
+                volendamVendorsDivDetail.style.display = 'grid';
+                amsterdamVendorsDivDetail.style.display = 'none';
+                volendamDetailBtn.classList.add('active', 'bg-blue-500', 'text-white');
+                volendamDetailBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                amsterdamDetailBtn.classList.remove('active', 'bg-blue-500', 'text-white');
+                amsterdamDetailBtn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+        } else {
+            console.error("Detail tab buttons or containers not found.");
+        }
+
+        // Main Page Navigation
+        const mainNavContainer = document.getElementById('mainNavigation');
+        if (!mainNavContainer) {
+            console.error("Main navigation container '#mainNavigation' not found!");
+            return; 
+        }
+        const mainNavButtons = mainNavContainer.querySelectorAll('.main-nav-button');
+        const pageSections = document.querySelectorAll('.page-section');
+
+        if (mainNavButtons.length === 0) {
+            console.error("No '.main-nav-button' elements found!");
+            return;
+        }
+        if (pageSections.length === 0) {
+            console.error("No '.page-section' elements found!");
+            return;
+        }
+
+        mainNavButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+                console.log(`Button clicked, targetId: ${targetId}`); 
+
+                mainNavButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                let foundTargetSection = false;
+                pageSections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.style.display = 'block';
+                        foundTargetSection = true;
+                        console.log(`Showing section: ${section.id}`); 
+                    } else {
+                        section.style.display = 'none';
+                        // console.log(`Hiding section: ${section.id}`); 
+                    }
+                });
+                
+                if (!foundTargetSection) {
+                    console.error(`Target section with ID '${targetId}' not found.`); 
+                }
+
+                const targetSectionForScroll = document.getElementById(targetId);
+                if (targetSectionForScroll && foundTargetSection) {
+                    targetSectionForScroll.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        function displayVissoorten() {
+            const accordionContainer = document.getElementById('vissoortenAccordion');
+            if (!accordionContainer) { 
+                console.error("Vissoorten accordion container not found.");
+                return;
+            }
+            accordionContainer.innerHTML = '';
+            vissoorten.forEach((vis) => {
+                // Replaced template literal with string concatenation
+                let itemHTML = '<div class="accordion-item">';
+                itemHTML += '<div class="accordion-header">';
+                itemHTML += '<span>' + (vis.name || '') + '</span>';
+                itemHTML += '<i class="fas fa-chevron-down"></i>';
+                itemHTML += '</div>';
+                itemHTML += '<div class="accordion-content">';
+                itemHTML += '<p class="mb-2"><strong>Prijsindicatie:</strong> ' + (vis.price || '') + '</p>';
+                itemHTML += '<p class="mb-2"><strong>Beschikbaarheid:</strong> ' + (vis.availability || '') + '</p>';
+                itemHTML += '<p><strong>Opmerkingen:</strong> ' + (vis.notes || '') + '</p>';
+                itemHTML += '</div>';
+                itemHTML += '</div>';
+                accordionContainer.innerHTML += itemHTML;
+            });
+
+            document.querySelectorAll('#vissoortenAccordion .accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const accordionItem = header.parentElement;
+                    const wasActive = accordionItem.classList.contains('active');
+                    document.querySelectorAll('#vissoortenAccordion .accordion-item.active').forEach(activeItem => {
+                        if (activeItem !== accordionItem) {
+                            activeItem.classList.remove('active');
+                        }
+                    });
+                    if (!wasActive) { 
+                        accordionItem.classList.add('active');
+                    } else { 
+                         accordionItem.classList.remove('active');
+                    }
+                });
+            });
+        }
+        
+        // Initial display calls
+        displayVendors('amsterdam'); 
+        displayVendors('volendam');  
+        displayVissoorten();
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('vendorModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        const defaultActiveButton = document.querySelector('#mainNavigation .main-nav-button[data-target="topKandidatenSection"]');
+        if (defaultActiveButton) {
+            console.log("Clicking default active button:", defaultActiveButton.dataset.target); 
+            defaultActiveButton.click();
+        } else {
+            console.error("Default active button for main navigation not found!"); 
+        }
+        
+        if(amsterdamDetailBtn) { 
+             console.log("Clicking Amsterdam detail button for initial state."); 
+             amsterdamDetailBtn.click(); 
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
